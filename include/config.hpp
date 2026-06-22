@@ -1,6 +1,6 @@
 #pragma once
 
-#define MOTEPAD_VERSTION "0.1.2" 
+#define MOTEPAD_VERSTION "0.2.2" 
 
 #define TAB_STOP 8
 

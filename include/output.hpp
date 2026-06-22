@@ -7,7 +7,7 @@
 #include <cstdarg>
 #include "editorState.hpp"
 
-int CxToRx(const std::string& line, int cx);
+int CxToRx(editorConfig& EditC, const std::string& line, int cx);
 
 void editorScroll(editorConfig& EditC);
 

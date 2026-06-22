@@ -4,7 +4,7 @@
 #include "output.hpp"
 #include "config.hpp"
 
-int CxToRx(const std::string& line, int cx) {
+int CxToRx(editorConfig& EditC ,const std::string& line, int cx) {
   int rx = 0;
   for (int i = 0; i < cx; i++) {
     if (line[i] == '\t') {
@@ -12,6 +12,10 @@ int CxToRx(const std::string& line, int cx) {
     }
     rx++;
   }
+  if (EditC.cy <= EditC.numRows) {
+    rx += std::to_string(EditC.cy + 1).length() + 1;
+  }
+
   return rx;
 }
 
@@ -19,7 +23,7 @@ void editorScroll(editorConfig& EditC) {
   EditC.rx = 0;
 
   if (EditC.cy < EditC.numRows) {
-    EditC.rx = (CxToRx(EditC.GetLine(EditC.cy), EditC.cx));
+    EditC.rx = (CxToRx(EditC, EditC.GetLine(EditC.cy), EditC.cx));
   }
 
   if (EditC.cy < EditC.rowoff) {
@@ -86,7 +90,12 @@ void editorDrawRows(editorConfig& EditC, std::string &s) {
       } 
       
       if (static_cast<size_t>(EditC.coloff) < rd.length()) {
+        s += std::to_string(filerow + 1) + " ";
         s.append(rd, EditC.coloff, len);
+      }
+
+      else if (rd.length() == 0) {
+        s += std::to_string(filerow + 1) + " ";
       }
     }
     

@@ -120,6 +120,7 @@ void editorConfig::editorDelChar() {
         pt.Delete(pos - 1);
         cx = pt.getLine(cy - 1).length();
         cy--;
+        numRows--;
     }
     dirty++;
 }
