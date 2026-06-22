@@ -79,15 +79,13 @@ right now, it only includes a `temptest.cpp` file meant to test the piecetable b
 There are several things i wish to add to this project later on:
 1. `undo() / redo()` functions.
 
-2. line numbers
+2. syntax highlighting
 
-3. syntax highlighting
+3. search function
 
-4. search function
+4. copy and paste
 
-5. copy and paste
-
-6. and many more.
+5. and many more.
 
 ## Acknowledgements
 
