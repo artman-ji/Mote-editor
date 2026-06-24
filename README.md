@@ -68,6 +68,7 @@ make clean
 ```text
 CTRL-S: Save
 CTRL-Q: Quit
+CTRL-F: Find
 ```
 
 ## Testing
@@ -81,11 +82,13 @@ There are several things i wish to add to this project later on:
 
 2. syntax highlighting
 
-3. search function
+3. copy and paste
 
-4. copy and paste
+4. selecting text
 
-5. and many more.
+5. multiple buffers
+
+6. more configuration
 
 ## Acknowledgements
 

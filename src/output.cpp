@@ -180,9 +180,12 @@ void editorSetStatusMsg(editorConfig& EditC, const char* fmt, ...) {
   va_end(args2);
   
   if (len > 0) {
-      std::vector<char> buffer(len + 1);
-      std::vsnprintf(buffer.data(), buffer.size(), fmt, args1);
-      EditC.statusMsg = std::string(buffer.data(), len);
+    std::vector<char> buffer(len + 1);
+    std::vsnprintf(buffer.data(), buffer.size(), fmt, args1);
+    EditC.statusMsg = std::string(buffer.data(), len);
+  }
+  else {
+    EditC.statusMsg = "";
   }
   va_end(args1);
   

@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
         editorOpen(ec, argv[1]);
     }
 
-    editorSetStatusMsg(ec, "HELP: Ctrl-S = save | Ctrl-Q = quit");
+    editorSetStatusMsg(ec, "HELP: Ctrl-S = save | Ctrl-Q = quit | Ctrl-F = find");
 
     while (true) { 
         editorRefreshScreen(ec);

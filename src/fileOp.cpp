@@ -22,7 +22,7 @@ void editorOpen(editorConfig& EditC, const std::string& filename) {
 
 void editorSave(editorConfig& EditC) {
     if (EditC.filename.empty()) {
-        EditC.filename = editorPrompt(EditC, "Save as: %s (ESC to cancel)");
+        EditC.filename = editorPrompt(EditC, "Save as: %s (ESC to cancel)", nullptr);
         if (EditC.filename.empty()) {
             editorSetStatusMsg(EditC, "Save aborted");
             return;
