@@ -2,6 +2,15 @@
 
 All notable changes to this project will be dcumented in this file (from now on).
 
+## [0.4.0] - 2026-06-25
+### Added
+- Made line numbering Configuriable in the config.hpp file.
+- added an open file command with the key CTRL-O.
+
+### Fixed
+- Fixed a major bug causing the terminal flags to not return to normal after closing the editor.
+- Fixed a minor bug where the messages in the message bar were not being displayed correctly.
+
 ## [0.3.0] - 2026-06-24
 ### Added
 - Implemented an Incremental Search function in the message bar.

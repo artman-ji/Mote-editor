@@ -93,7 +93,7 @@ std::string editorPrompt(editorConfig& EditC, const std::string& prompt, std::fu
       statusMsg.replace(pos, 2, userInput);
     }
 
-    editorSetStatusMsg(EditC, userInput.c_str());
+    editorSetStatusMsg(EditC, statusMsg.c_str());
     editorRefreshScreen(EditC);
     int c = EditC.tl.editorReadKey();
     if (c == DELETE_KEY || c == CTRL_KEY('h') || c == BACKSPACE) {
@@ -161,10 +161,11 @@ void editorMoveCursor(editorConfig& EditC, int k) {
   }
 }
 
-void editorProcessKeypress(editorConfig& EditC) {
+bool editorProcessKeypress(editorConfig& EditC) {
   static int quit = QUIT_TIMES;
 
   int c = EditC.tl.editorReadKey();
+  bool rType = true;
   switch (c) {
     case '\r':
       EditC.editorInsertNewLine();
@@ -174,11 +175,11 @@ void editorProcessKeypress(editorConfig& EditC) {
         editorSetStatusMsg(EditC, "WARNING!!! File has unsaved changes. "
           "Press Ctrl-Q %d more times to quit.", quit);
         quit--;
-        return;
+        return rType;
       }
       write(STDOUT_FILENO, "\x1b[2J", 4);
       write(STDOUT_FILENO, "\x1b[H", 3);
-      exit(0);
+      rType = false;
       break;
 
     case BACKSPACE:
@@ -209,6 +210,10 @@ void editorProcessKeypress(editorConfig& EditC) {
       editorFind(EditC);
       break;
 
+    case CTRL_KEY('o'):
+      editorOpen(EditC, "");
+      break;
+
     case CTRL_KEY('l'):
     case '\x1b':
       break;
@@ -218,4 +223,5 @@ void editorProcessKeypress(editorConfig& EditC) {
       break;
   }
   quit = QUIT_TIMES;
+  return rType;
 }

@@ -12,7 +12,7 @@ int CxToRx(editorConfig& EditC ,const std::string& line, int cx) {
     }
     rx++;
   }
-  if (EditC.cy <= EditC.numRows) {
+  if (EditC.cy <= EditC.numRows && LINENUMBER) {
     rx += std::to_string(EditC.cy + 1).length() + 1;
   }
 
@@ -90,12 +90,12 @@ void editorDrawRows(editorConfig& EditC, std::string &s) {
       } 
       
       if (static_cast<size_t>(EditC.coloff) < rd.length()) {
-        s += std::to_string(filerow + 1) + " ";
+        s += (LINENUMBER ? std::to_string(filerow + 1) + " " : "");
         s.append(rd, EditC.coloff, len);
       }
 
       else if (rd.length() == 0) {
-        s += std::to_string(filerow + 1) + " ";
+        s += (LINENUMBER ? std::to_string(filerow + 1) + " " : "");
       }
     }
     

@@ -1,8 +1,17 @@
 #include "fileOp.hpp"
 
 void editorOpen(editorConfig& EditC, const std::string& filename) {
-    EditC.filename = filename;
-    std::ifstream fp(filename);
+    if (filename.empty()) {
+        EditC.filename = editorPrompt(EditC, "Open file: %s (ESC to cancel)", nullptr);
+        if (EditC.filename.empty()) {
+            editorSetStatusMsg(EditC, "Open aborted");
+            return;
+        }        
+    }
+    else {
+        EditC.filename = filename;
+    }
+    std::ifstream fp(EditC.filename);
     if (!fp) {
         std::cout << "error!" << std::endl;
     }

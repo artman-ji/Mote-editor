@@ -16,4 +16,4 @@ void editorFind(editorConfig& EditC);
 
 void editorMoveCursor(editorConfig& EditC, int k);
 
-void editorProcessKeypress(editorConfig& EditC);
+bool editorProcessKeypress(editorConfig& EditC);

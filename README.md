@@ -69,6 +69,7 @@ make clean
 CTRL-S: Save
 CTRL-Q: Quit
 CTRL-F: Find
+CTRL-O: Open
 ```
 
 ## Testing

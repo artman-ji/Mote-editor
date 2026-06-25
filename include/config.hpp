@@ -6,6 +6,8 @@
 
 #define QUIT_TIMES 3
 
+#define LINENUMBER true // value for Line Numbering
+
 #define CTRL_KEY(k) ((k) & 0x1f)
 
 enum editorKey {
